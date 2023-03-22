@@ -71,6 +71,13 @@ group :test do
   gem "webdrivers"
 end
 
+#React dependencies
 gem "shakapacker", "= 6.6"
-
 gem "react_on_rails", "= 13.3"
+
+#Dependies for PDF embedding script
+gem "pdf-reader"
+gem 'http'
+gem 'dotenv'
+gem 'csv'
+gem 'json'
