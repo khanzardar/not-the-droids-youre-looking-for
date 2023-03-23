@@ -75,9 +75,12 @@ end
 gem "shakapacker", "= 6.6"
 gem "react_on_rails", "= 13.3"
 
-#Dependies for PDF embedding script
+#Dependencies for PDF embedding script
 gem "pdf-reader"
 gem 'http'
 gem 'dotenv'
 gem 'csv'
 gem 'json'
+
+#Dependencies for cosine similarity
+gem 'string-similarity'

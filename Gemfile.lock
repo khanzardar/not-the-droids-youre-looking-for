@@ -226,6 +226,7 @@ GEM
     sqlite3 (1.6.1-x86_64-darwin)
     stimulus-rails (1.2.1)
       railties (>= 6.0.0)
+    string-similarity (2.1.0)
     thor (1.2.1)
     timeout (0.3.2)
     ttfunk (1.7.0)
@@ -277,6 +278,7 @@ DEPENDENCIES
   sprockets-rails
   sqlite3 (~> 1.4)
   stimulus-rails
+  string-similarity
   turbo-rails
   tzinfo-data
   web-console
