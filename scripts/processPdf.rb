@@ -41,29 +41,30 @@ def fetchEmbeddings(sentences)
         data = JSON.parse(response.to_s)
 
         if data['data'] && data['data'][0] && data['data'][0]['embedding']
-            { title: sentence[:title], embedding: data['data'][0]['embedding'] }
+          #Do we care about title?
+            { content: sentence[:content], embedding: data['data'][0]['embedding'] }
         else
-            puts "!! Error: Unexpected response from #{sentence[:title]}. Response: #{data.inspect}"
-            { title: sentence[:title], embedding: nil}
+            puts "!! Error: Unexpected response from #{sentence[:content]}. Response: #{data.inspect}"
+            { content: sentence[:content], embedding: nil}
         end
     end
 end
 
 def storeEmbeddings(embeddings, outputPath)
     CSV.open(outputPath, 'w') do |csv|
-        csv << ['title'] + (0...4096).to_a
+        csv << ['content'] + (0...4096).to_a
         embeddings.each do |embedding|
             if embedding[:embedding].nil?
-                puts "!! Skipping storing embedding for #{embedding[:title]} due to an error in fetching."
+                puts "!! Skipping storing embedding for #{embedding[:content]} due to an error in fetching."
               else
-                puts ">> Storing embedding for #{embedding[:title]}..."
-                csv << [embedding[:title]] + embedding[:embedding]
+                puts ">> Storing embedding for #{embedding[:content]}..."
+                csv << [embedding[:content]] + embedding[:embedding]
               end
         end
     end
 end
 
-pdfFilepath = 'storage/canada-tax-code-sample.pdf'
+pdfFilepath = ENV['PDF_FILEPATH']
 sentencesCsvPath = 'storage/manuscript.sentences.csv'
 embeddingsCsvPath = 'storage/manuscript.csv'
 
@@ -78,7 +79,10 @@ sentences = splitSentences(pages)
 
 puts ">Storing sentences content..."
 CSV.open(sentencesCsvPath, 'w', headers:['title', 'content'], write_headers: true) do |csv|
-    sentences.each { |sentence| csv << [sentence[:title], sentence[:content]] }
+    sentences.each do |sentence|
+      content = sentence[:content].gsub("", '')
+      csv << [sentence[:title], content]
+    end
 end
 
 puts ">Fetching embeddings..."
