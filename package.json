@@ -1,6 +1,9 @@
 {
   "name": "app",
   "private": true,
+  "scripts": {
+    "build:dev": "rm -rf public/webpack/production && RAILS_ENV=production NODE_ENV=production bin/webpacker --watch" 
+  },
   "dependencies": {
     "@babel/core": "7",
     "@babel/plugin-transform-runtime": "7",
