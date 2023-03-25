@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import QuestionInput from "./components/QuestionInput";
 import AnswerDisplay from "./components/AnswerDisplay";
+import AudioAnswer from "./components/SynthesizeSpeech";
 
 const App = () => {
   const [answer, setAnswer] = useState("");
@@ -15,6 +16,7 @@ const App = () => {
         loading={loading}
       />
       <AnswerDisplay answer={answer} loading={loading} />
+      <AudioAnswer answer={answer} loading={loading} />
     </div>
   );
 };
