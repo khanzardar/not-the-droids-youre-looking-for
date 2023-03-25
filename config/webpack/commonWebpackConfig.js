@@ -9,13 +9,33 @@ const {
 
 const commonOptions = {
   resolve: {
-    extensions: [".css", ".ts", ".tsx"],
+    extensions: [".css", ".ts", ".tsx", ".modules.scss"],
   },
   module: {
     rules: [
       {
         test: /\.css$/,
         use: ["style-loader", "css-loader", "postcss-loader"],
+      },
+      // {
+      //   test: /\.modules\.scss$/,
+      //   use: [
+      //     "style-loader",
+      //     {
+      //       loader: "css-loader",
+      //       options: {
+      //         modules: {
+      //           localIdentName: "[name]__[local]___[hash:base64:5]",
+      //         },
+      //       },
+      //     },
+      //     "postcss-loader",
+      //     "sass-loader",
+      //   ],
+      // },
+      {
+        test: /^((?!\.modules).)*\.scss$/,
+        use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"],
       },
     ],
   },

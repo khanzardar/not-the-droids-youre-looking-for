@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import QuestionInput from "./components/QuestionInput";
 import AnswerDisplay from "./components/AnswerDisplay";
 import AudioAnswer from "./components/SynthesizeSpeech";
-import "./styles.css";
 
 const App = () => {
   const [answer, setAnswer] = useState("");
