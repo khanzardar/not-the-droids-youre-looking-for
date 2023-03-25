@@ -7,7 +7,7 @@
     "yarn": "1.22.1"
   },
   "scripts": {
-    "build": "rm -rf public/webpack/production && RAILS_ENV=production NODE_ENV=production bin/webpacker --watch"
+    "build": "RAILS_ENV=production NODE_ENV=production bin/webpacker"
   },
   "dependencies": {
     "@babel/core": "7",
