@@ -1,6 +1,11 @@
 {
   "name": "app",
+
   "private": true,
+  "engines": {
+    "node": "16.15.1",
+    "yarn": "1.22.1"
+  },
   "scripts": {
     "build": "rm -rf public/webpack/production && RAILS_ENV=production NODE_ENV=production bin/webpacker --watch"
   },
