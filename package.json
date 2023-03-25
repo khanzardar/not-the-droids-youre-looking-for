@@ -2,7 +2,7 @@
   "name": "app",
   "private": true,
   "scripts": {
-    "build:dev": "rm -rf public/webpack/production && RAILS_ENV=production NODE_ENV=production bin/webpacker --watch"
+    "build": "rm -rf public/webpack/production && RAILS_ENV=production NODE_ENV=production bin/webpacker --watch"
   },
   "dependencies": {
     "@babel/core": "7",
@@ -18,8 +18,10 @@
     "compression-webpack-plugin": "9",
     "css-loader": "^6.7.3",
     "css-minimizer-webpack-plugin": "^4.2.2",
+    "js-yaml": "^4.1.0",
     "mini-css-extract-plugin": "^2.7.5",
     "node-sass": "^8.0.0",
+    "postcss": "^8.4.21",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
