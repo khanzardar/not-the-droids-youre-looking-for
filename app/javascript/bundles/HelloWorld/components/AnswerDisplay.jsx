@@ -1,4 +1,5 @@
 import React from "react";
+import "../styles.css";
 
 const AnswerDisplay = ({ answer, loading }) => {
   let displayContent;
@@ -11,7 +12,7 @@ const AnswerDisplay = ({ answer, loading }) => {
     displayContent = "Sorry, I'm unable to find a response to that question.";
   }
 
-  return <div>{displayContent}</div>;
+  return <div className="answer">{displayContent}</div>;
 };
 
 export default AnswerDisplay;
