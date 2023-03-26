@@ -7,6 +7,13 @@ const {
   merge,
 } = require("shakapacker");
 
+const { isEnvProduction } = require("shakapacker/helpers/webpackHelpers");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
+const cssLoader = isEnvProduction
+  ? { loader: MiniCssExtractPlugin.loader }
+  : "style-loader";
+
 const commonOptions = {
   resolve: {
     extensions: [".css", ".ts", ".tsx", ".modules.scss"],
