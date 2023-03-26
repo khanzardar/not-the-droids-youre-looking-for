@@ -7,12 +7,7 @@ const {
   merge,
 } = require("shakapacker");
 
-const { isEnvProduction } = require("shakapacker");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-
-const cssLoader = isEnvProduction
-  ? { loader: MiniCssExtractPlugin.loader }
-  : "style-loader";
 
 const commonOptions = {
   resolve: {
@@ -22,7 +17,13 @@ const commonOptions = {
     rules: [
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader", "postcss-loader"],
+        use: [
+          process.env.NODE_ENV === "production"
+            ? MiniCssExtractPlugin.loader
+            : "style-loader",
+          "css-loader",
+          "postcss-loader",
+        ],
       },
       // {
       //   test: /\.modules\.scss$/,
@@ -42,7 +43,14 @@ const commonOptions = {
       // },
       {
         test: /^((?!\.modules).)*\.scss$/,
-        use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"],
+        use: [
+          process.env.NODE_ENV === "production"
+            ? MiniCssExtractPlugin.loader
+            : "style-loader",
+          "css-loader",
+          "postcss-loader",
+          "sass-loader",
+        ],
       },
     ],
   },
