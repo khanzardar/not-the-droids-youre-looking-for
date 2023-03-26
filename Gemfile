@@ -87,3 +87,4 @@ gem 'string-similarity'
 
 #Dependencies for Heroku issues
 gem 'matrix'
+gem 'turbo-rails'
