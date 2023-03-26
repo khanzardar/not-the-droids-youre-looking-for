@@ -7,9 +7,8 @@ const { merge } = require("shakapacker");
 const clientWebpackConfig = () => {
   const config = commonWebpackConfig();
 
-  if (config.name !== "client") {
-    throw new Error("clientWebpackConfig name must be 'client'");
-  }
+  // Set the config name to 'client'
+  config.name = "client";
 
   // Remove server-bundle entry
   delete config.entry["server-bundle"];
