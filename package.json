@@ -5,10 +5,6 @@
     "node": "16.18.1",
     "yarn": "1.22.19"
   },
-  "scripts": {
-    "postinstall": "RAILS_ENV=production NODE_ENV=production RAILS_SERVE_STATIC_FILES=true bin/webpacker",
-    "build": "webpack --config config/webpack/production.js"
-  },
   "dependencies": {
     "@babel/core": "7",
     "@babel/plugin-transform-runtime": "7",
@@ -36,10 +32,11 @@
     "react-on-rails": "13.3.0",
     "sass": "^1.60.0",
     "sass-loader": "^13.2.1",
+    "sass-resources-loader": "^2.2.5",
     "shakapacker": "6.6.0",
     "style-loader": "^3.3.2",
     "terser-webpack-plugin": "5",
-    "webpack": "5",
+    "webpack": "^5.76.3",
     "webpack-assets-manifest": "5",
     "webpack-cli": "4",
     "webpack-dev-server": "^4.13.1",
