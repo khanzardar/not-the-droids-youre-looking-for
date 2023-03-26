@@ -2,17 +2,26 @@
 // https://github.com/shakacode/react_on_rails_demo_ssr_hmr/blob/master/config/webpack/clientWebpackConfig.js
 
 const commonWebpackConfig = require("./commonWebpackConfig");
+const { merge } = require("shakapacker");
 
-const configureClient = () => {
-  const clientConfig = commonWebpackConfig();
+const clientWebpackConfig = () => {
+  const config = commonWebpackConfig();
 
-  // server-bundle is special and should ONLY be built by the serverConfig
-  // In case this entry is not deleted, a very strange "window" not found
-  // error shows referring to window["webpackJsonp"]. That is because the
-  // client config is going to try to load chunks.
-  delete clientConfig.entry["server-bundle"];
+  if (config.name !== "client") {
+    throw new Error("clientWebpackConfig name must be 'client'");
+  }
 
-  return clientConfig;
+  // Remove server-bundle entry
+  delete config.entry["server-bundle"];
+
+  return merge(config, {
+    entry: {
+      application: "./app/javascript/packs/application.js",
+    },
+    output: {
+      filename: "js/[name]-[contenthash].js",
+    },
+  });
 };
 
-module.exports = configureClient;
+module.exports = clientWebpackConfig;
