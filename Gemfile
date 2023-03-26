@@ -84,3 +84,6 @@ gem 'json'
 
 #Dependencies for cosine similarity
 gem 'string-similarity'
+
+#Dependencies for Heroku issues
+gem 'matrix'
