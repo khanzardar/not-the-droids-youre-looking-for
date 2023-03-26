@@ -7,7 +7,7 @@ const {
   merge,
 } = require("shakapacker");
 
-const { isEnvProduction } = require("shakapacker/helpers/webpackHelpers");
+const { isEnvProduction } = require("shakapacker");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const cssLoader = isEnvProduction
