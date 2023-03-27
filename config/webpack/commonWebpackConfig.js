@@ -23,10 +23,11 @@ const commonOptions = {
           {
             loader: "css-loader",
             options: {
-              modules: true,
-              localIdentName: isProduction
-                ? "[hash:base64]"
-                : "[path][name]__[local]--[hash:base64:5]",
+              modules: {
+                localIdentName: isProduction
+                  ? "[hash:base64]"
+                  : "[path][name]__[local]--[hash:base64:5]",
+              },
             },
           },
           "postcss-loader",
