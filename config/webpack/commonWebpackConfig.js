@@ -33,6 +33,7 @@ const commonOptions = {
               sourceMap: !isProduction,
             },
           },
+          "postcss-loader",
           "sass-loader",
         ],
       },
@@ -41,6 +42,7 @@ const commonOptions = {
         use: [
           isProduction ? MiniCssExtractPlugin.loader : "style-loader",
           "css-loader",
+          "postcss-loader",
           "sass-loader",
         ],
       },
