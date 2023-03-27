@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import styles from "../styles.modules.scss";
+import styles from "../styles.module.scss";
 
 const QuestionInput = ({ setAnswer, setLoading, loading }) => {
   const [question, setQuestion] = useState("");

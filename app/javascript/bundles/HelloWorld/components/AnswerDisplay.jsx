@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../styles.modules.scss";
+import styles from "../styles.module.scss";
 
 const AnswerDisplay = ({ answer, loading }) => {
   let displayContent;

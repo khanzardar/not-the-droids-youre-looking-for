@@ -20,7 +20,7 @@ const commonOptions = {
         ],
       },
       {
-        test: /\.modules\.scss$/,
+        test: /\.module\.scss$/,
         use: [
           isProduction ? MiniCssExtractPlugin.loader : "style-loader",
           {
