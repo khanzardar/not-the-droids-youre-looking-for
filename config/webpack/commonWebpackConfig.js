@@ -3,7 +3,7 @@ const {
   merge,
 } = require("shakapacker");
 
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+// const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const isProduction = process.env.NODE_ENV === "production";
 
 const commonOptions = {
@@ -14,23 +14,19 @@ const commonOptions = {
     rules: [
       {
         test: /\.css$/,
-        use: [
-          isProduction ? MiniCssExtractPlugin.loader : "style-loader",
-          "css-loader",
-        ],
+        use: ["style-loader", "css-loader"],
       },
       {
         test: /\.module\.scss$/,
         use: [
-          isProduction ? MiniCssExtractPlugin.loader : "style-loader",
+          "style-loader",
           {
             loader: "css-loader",
             options: {
-              modules: {
-                localIdentName: "[name]__[local]__[hash:base64:5]",
-              },
-              importLoaders: 1,
-              sourceMap: !isProduction,
+              modules: true,
+              localIdentName: isProduction
+                ? "[hash:base64]"
+                : "[path][name]__[local]--[hash:base64:5]",
             },
           },
           "postcss-loader",
