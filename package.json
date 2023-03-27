@@ -6,7 +6,7 @@
     "yarn": "1.22.19"
   },
   "scripts": {
-    "build": "NODE_ENV=production webpack --mode=production --env production --progress --colors"
+    "build": "NODE_ENV=production webpack --mode=production --env production"
   },
   "dependencies": {
     "@babel/core": "7",
