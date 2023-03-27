@@ -25,7 +25,7 @@ const commonOptions = {
             options: {
               modules: {
                 localIdentName: isProduction
-                  ? "[hash:base64]"
+                  ? "[hash:base64:5]"
                   : "[path][name]__[local]--[hash:base64:5]",
               },
             },
