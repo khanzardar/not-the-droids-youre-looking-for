@@ -6,7 +6,7 @@
     "yarn": "1.22.19"
   },
   "scripts": {
-    "build": "RAILS_ENV=production NODE_ENV=production bin/webpacker && RAILS_ENV=production bundle exec rake assets:precompile"
+    "build": "NODE_ENV=production webpack --mode=production --env production --progress --colors"
   },
   "dependencies": {
     "@babel/core": "7",
