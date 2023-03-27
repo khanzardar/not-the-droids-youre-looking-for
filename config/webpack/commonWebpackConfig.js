@@ -4,7 +4,7 @@ const {
 } = require("shakapacker");
 
 // const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const isProduction = process.env.NODE_ENV === "production";
+// const isProduction = process.env.NODE_ENV === "production";
 
 const commonOptions = {
   resolve: {
@@ -24,9 +24,7 @@ const commonOptions = {
             loader: "css-loader",
             options: {
               modules: {
-                localIdentName: isProduction
-                  ? "[hash:base64:5]"
-                  : "[path][name]__[local]--[hash:base64:5]",
+                localIdentName: "[path][name]__[local]--[hash:base64:5]",
               },
             },
           },
