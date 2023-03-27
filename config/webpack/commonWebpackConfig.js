@@ -8,7 +8,7 @@ const isProduction = process.env.NODE_ENV === "production";
 
 const commonOptions = {
   resolve: {
-    extensions: [".css", ".ts", ".tsx"],
+    extensions: [".js", ".jsx"],
   },
   module: {
     rules: [
@@ -33,15 +33,6 @@ const commonOptions = {
               sourceMap: !isProduction,
             },
           },
-          "postcss-loader",
-          "sass-loader",
-        ],
-      },
-      {
-        test: /^((?!\.modules).)*scss$/,
-        use: [
-          isProduction ? MiniCssExtractPlugin.loader : "style-loader",
-          "css-loader",
           "postcss-loader",
           "sass-loader",
         ],
