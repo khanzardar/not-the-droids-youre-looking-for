@@ -4,8 +4,6 @@
 const commonWebpackConfig = require("./commonWebpackConfig");
 const { merge } = require("shakapacker");
 
-const isProduction = process.env.NODE_ENV === "production";
-
 const clientWebpackConfig = () => {
   const config = commonWebpackConfig();
 

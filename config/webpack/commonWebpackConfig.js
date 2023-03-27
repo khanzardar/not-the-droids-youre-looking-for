@@ -4,6 +4,7 @@ const {
 } = require("shakapacker");
 
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const isProduction = process.env.NODE_ENV === "production";
 
 const commonOptions = {
   resolve: {
