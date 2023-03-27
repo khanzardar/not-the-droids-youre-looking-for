@@ -3,11 +3,48 @@ const {
   merge,
 } = require("shakapacker");
 
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
 const commonOptions = {
   resolve: {
     extensions: [".css", ".ts", ".tsx"],
   },
-  module: {},
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          isProduction ? MiniCssExtractPlugin.loader : "style-loader",
+          "css-loader",
+        ],
+      },
+      {
+        test: /\.modules\.scss$/,
+        use: [
+          isProduction ? MiniCssExtractPlugin.loader : "style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              modules: {
+                localIdentName: "[name]__[local]__[hash:base64:5]",
+              },
+              importLoaders: 1,
+              sourceMap: !isProduction,
+            },
+          },
+          "sass-loader",
+        ],
+      },
+      {
+        test: /^((?!\.modules).)*scss$/,
+        use: [
+          isProduction ? MiniCssExtractPlugin.loader : "style-loader",
+          "css-loader",
+          "sass-loader",
+        ],
+      },
+    ],
+  },
 };
 
 // Copy the object using merge b/c the baseClientWebpackConfig and commonOptions are mutable globals
