@@ -3,7 +3,7 @@ const {
   merge,
 } = require("shakapacker");
 
-// const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 // const isProduction = process.env.NODE_ENV === "production";
 
 const commonOptions = {
@@ -19,7 +19,9 @@ const commonOptions = {
       {
         test: /\.module\.scss$/,
         use: [
-          "style-loader",
+          {
+            loader: MiniCssExtractPlugin.loader,
+          },
           {
             loader: "css-loader",
             options: {
