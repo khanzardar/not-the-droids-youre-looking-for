@@ -19,7 +19,7 @@ const commonOptions = {
       {
         test: /\.module\.scss$/,
         use: [
-          // "style-loader",
+          "style-loader",
           {
             loader: "css-loader",
             options: {
@@ -28,8 +28,8 @@ const commonOptions = {
               },
             },
           },
-          // "postcss-loader",
-          // "sass-loader",
+          "postcss-loader",
+          "sass-loader",
         ],
       },
     ],
