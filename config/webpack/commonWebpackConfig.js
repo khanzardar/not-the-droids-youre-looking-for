@@ -27,7 +27,7 @@ const commonOptions = {
             loader: "css-loader",
             options: {
               modules: {
-                localIdentName: "[local]",
+                localIdentName: "[name]__[local]__[hash:base64:5]",
               },
               importLoaders: 1,
               sourceMap: !isProduction,
