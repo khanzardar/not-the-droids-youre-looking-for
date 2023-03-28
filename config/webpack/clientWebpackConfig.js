@@ -15,7 +15,7 @@ const clientWebpackConfig = () => {
 
   return merge(config, {
     entry: {
-      application: "./app/javascript/packs/application.js",
+      application: "./client/application.js",
     },
     output: {
       filename: "js/[name]-[contenthash].js",
