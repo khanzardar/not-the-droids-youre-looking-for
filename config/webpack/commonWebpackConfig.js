@@ -7,7 +7,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const commonOptions = {
   resolve: {
-    extensions: [".css", ".js", ".jsx"],
+    extensions: [".css", ".js", ".jsx", ".module.scss"],
   },
   module: {
     rules: [
