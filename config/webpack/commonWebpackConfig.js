@@ -10,50 +10,28 @@ const commonOptions = {
     extensions: [".css", ".js", ".jsx"],
   },
   module: {
-    // rules: [
-    //   // SCSS ALL EXCEPT MODULES
-    //   {
-    //     test: /\.scss$/i,
-    //     exclude: /\.module\.scss$/i,
-    //     use: [
-    //       {
-    //         loader: MiniCssExtractPlugin.loader,
-    //       },
-    //       {
-    //         loader: "css-loader",
-    //         options: {
-    //           importLoaders: 1,
-    //           modules: {
-    //             mode: "icss",
-    //           },
-    //         },
-    //       },
-    //       "postcss-loader",
-    //       "sass-loader",
-    //     ],
-    //   },
-    //   // SCSS MODULES
-    //   {
-    //     test: /\.module\.scss$/i,
-    //     use: [
-    //       {
-    //         loader: MiniCssExtractPlugin.loader,
-    //       },
-    //       {
-    //         loader: "css-loader",
-    //         options: {
-    //           importLoaders: 1,
-    //           modules: {
-    //             mode: "local",
-    //             localIdentName: "[path][name]__[local]--[hash:base64:5]",
-    //           },
-    //         },
-    //       },
-    //       "postcss-loader",
-    //       "sass-loader",
-    //     ],
-    //   },
-    // ],
+    rules: [
+      {
+        test: /\.module\.scss$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: "css-loader",
+            options: {
+              modules: {
+                localIdentName: "[name]__[local]___[hash:base64:5]",
+              },
+              sourceMap: true,
+            },
+          },
+          "sass-loader",
+        ],
+      },
+      {
+        test: /^((?!\.module).)*\.scss$/,
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
+      },
+    ],
   },
 };
 
