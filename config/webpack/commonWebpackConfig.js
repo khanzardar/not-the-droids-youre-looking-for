@@ -16,19 +16,21 @@ const commonOptions = {
         test: /\.module\.scss$/,
         use: [
           isDevelopment ? "style-loader" : MiniCssExtractPlugin.loader,
-          {
-            loader: "css-loader",
-            options: {
-              modules: true,
-              sourceMap: isDevelopment,
-            },
-          },
-          {
-            loader: "sass-loader",
-            options: {
-              sourceMap: isDevelopment,
-            },
-          },
+          "css-loader",
+          // {
+          //   loader: "css-loader",
+          //   options: {
+          //     modules: true,
+          //     sourceMap: isDevelopment,
+          //   },
+          // },
+          "sass-loader",
+          // {
+          //   loader: "sass-loader",
+          //   options: {
+          //     sourceMap: isDevelopment,
+          //   },
+          // },
         ],
       },
       {
@@ -37,20 +39,21 @@ const commonOptions = {
         use: [
           isDevelopment ? "style-loader" : MiniCssExtractPlugin.loader,
           "css-loader",
-          {
-            loader: "sass-loader",
-            options: {
-              sourceMap: isDevelopment,
-            },
-          },
+          "sass-loader",
+          // {
+          //   loader: "sass-loader",
+          //   options: {
+          //     sourceMap: isDevelopment,
+          //   },
+          // },
         ],
       },
     ],
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: isDevelopment ? "[name].css" : "[name].[fullhash].css",
-      chunkFilename: isDevelopment ? "[id].css" : "[id].[fullhash].css",
+      // filename: isDevelopment ? "[name].css" : "[name].[fullhash].css",
+      // chunkFilename: isDevelopment ? "[id].css" : "[id].[fullhash].css",
     }),
   ],
 };
