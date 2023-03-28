@@ -4,22 +4,53 @@ const {
 } = require("shakapacker");
 
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const isDevelopment = process.env.NODE_ENV === "development";
 
 const commonOptions = {
   resolve: {
-    extensions: [".css", ".js", ".jsx", ".module.scss"],
+    extensions: [".scss", ".module.scss", ".js", ".jsx"],
   },
   module: {
     rules: [
       {
         test: /\.module\.scss$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
+        use: [
+          isDevelopment ? "style-loader" : MiniCssExtractPlugin.loader,
+          {
+            loader: "css-loader",
+            options: {
+              modules: true,
+              sourceMap: isDevelopment,
+            },
+          },
+          {
+            loader: "sass-loader",
+            options: {
+              sourceMap: isDevelopment,
+            },
+          },
+        ],
+      },
+      {
+        test: /\.scss$/,
+        exclude: /\.module\.scss$/,
+        use: [
+          isDevelopment ? "style-loader" : MiniCssExtractPlugin.loader,
+          "css-loader",
+          {
+            loader: "sass-loader",
+            options: {
+              sourceMap: isDevelopment,
+            },
+          },
+        ],
       },
     ],
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "[name].[fullhash].css",
+      filename: isDevelopment ? "[name].css" : "[name].[fullhash].css",
+      chunkFilename: isDevelopment ? "[id].css" : "[id].[fullhash].css",
     }),
   ],
 };
