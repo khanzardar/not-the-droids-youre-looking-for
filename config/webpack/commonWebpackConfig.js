@@ -20,6 +20,7 @@ const commonOptions = {
             loader: "css-loader",
             options: {
               sourceMap: isDevelopment,
+              modules: "[name]__[local]--[hash:base64:5]",
             },
           },
           {
