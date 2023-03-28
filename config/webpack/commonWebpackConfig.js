@@ -16,21 +16,18 @@ const commonOptions = {
         test: /\.module\.scss$/,
         use: [
           isDevelopment ? "style-loader" : MiniCssExtractPlugin.loader,
-          "css-loader",
-          // {
-          //   loader: "css-loader",
-          //   options: {
-          //     modules: true,
-          //     sourceMap: isDevelopment,
-          //   },
-          // },
-          "sass-loader",
-          // {
-          //   loader: "sass-loader",
-          //   options: {
-          //     sourceMap: isDevelopment,
-          //   },
-          // },
+          {
+            loader: "css-loader",
+            options: {
+              sourceMap: isDevelopment,
+            },
+          },
+          {
+            loader: "sass-loader",
+            options: {
+              sourceMap: isDevelopment,
+            },
+          },
         ],
       },
       {
@@ -39,13 +36,12 @@ const commonOptions = {
         use: [
           isDevelopment ? "style-loader" : MiniCssExtractPlugin.loader,
           "css-loader",
-          "sass-loader",
-          // {
-          //   loader: "sass-loader",
-          //   options: {
-          //     sourceMap: isDevelopment,
-          //   },
-          // },
+          {
+            loader: "sass-loader",
+            options: {
+              sourceMap: isDevelopment,
+            },
+          },
         ],
       },
     ],
