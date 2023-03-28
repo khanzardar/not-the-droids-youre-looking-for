@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import styles from "../styles.module.scss";
+import { styles } from "../new-styles.module.scss";
 
 const QuestionInput = ({ setAnswer, setLoading, loading }) => {
   const [question, setQuestion] = useState("");
@@ -58,13 +58,13 @@ const QuestionInput = ({ setAnswer, setLoading, loading }) => {
         placeholder="Type your question here..."
         value={question}
         onChange={(e) => setQuestion(e.target.value)}
-        className={styles["input-field"]}
+        className={styles.inputField}
       />
-      <button className={styles["button"]} type="submit" disabled={loading}>
+      <button className={styles.button} type="submit" disabled={loading}>
         Ask question
       </button>
       <button
-        className={styles["button"]}
+        className={styles.button}
         type="button"
         disabled={loading}
         onClick={handleLucky}
